@@ -1,0 +1,10 @@
+#cloud-config
+
+fqdn: ${fqdn}
+ssh_pwauth: false
+users:
+  - name: cloud
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    lock_passwd: true
+    ssh_authorized_keys:
+      - ssh-rsa ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC0LvtM93agtEOEHGRLtvhsqW0F8XJByAZi8qXvqHawD18tUIcmruzRjC7S/S1a2HqWGQzVL1u6KHNV6kMy6OcXc3rONOjLdv2qPgrYfNjdqDbHhM8rqobYAzxotuMtppdHFeWrbgS/tongtam2Ng8QgixglZJNeRc13FCOPLbyKXrSJUxjtyQt4Hyc7a46J2fsdZTOsdwcXoNvfPIhMCUsIBSnYHfYq3QfjIv6h8PafeWggqIyvtg3GY+K/UXMFnen11Qof0KZwdrA1IYnMADU+3k9kDXg6QwY9q4fSl4zeW/zEUe7AlJvzQ4rLKQlw2LnE6kDsX345mqbpRNnHNOOLpbZ83J2soYnyg2Ud8fUw4yZ6A27MRgQnVfXtHIYD23RcFAQosh5EcVy8wYeyvjqk08aW1zcQX+UORuBfdMUNbzwoaxm9a71WbymD5PsdOm/UaOhSaszlZcGikA1jn4gS8kCapwNqGX6dIEKTGlR0iHxmUSAuZl5llz6n9kgkLs= admin@terminal
