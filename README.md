@@ -1,5 +1,14 @@
 
 ```
+├── ansible
+│   ├── ansible.cfg              # allow connections to unknown hosts
+│   ├── inventory
+│   ├── main.yml
+│   ├── roles
+│   │   └── infra
+│   │       └── tasks
+│   │           └── main.yml
+│   └── update_inventory.sh      # a script to create the inventory
 ├── README.md
 └── terraform
     ├── example_modules          # additional examples
