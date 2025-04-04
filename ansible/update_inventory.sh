@@ -54,9 +54,7 @@ function dump() {
 #
 # Run the function in the terraform directory
 #
-(
-	pushd ../terraform >/dev/null;
-	tofu refresh;
-	dump;
-	popd >/dev/null
-) | tee inventory/site.yml
+pushd ../terraform >/dev/null
+tofu refresh
+dump | tee ../ansible/inventory/site.yml
+popd >/dev/null
