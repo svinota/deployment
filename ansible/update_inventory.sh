@@ -1,8 +1,10 @@
 #!/bin/bash
 
 for tool in tofu jq yq; do {
-	which $tool 2>/dev/null || echo "$tool not found"
-	exit 1
+	which $tool >/dev/null 2>&1 || {
+		echo "$tool not found"
+		exit 1
+	}
 } done
 #
 # Create ansible inventory from terraform state
@@ -11,7 +13,7 @@ for tool in tofu jq yq; do {
 # and get the first IP address on the first interface.
 #
 # The resulting inventory be like:
-# 
+#
 # all:
 #   children:
 #     site:
@@ -50,11 +52,11 @@ function dump() {
 }
 
 #
-# Sync the state
-#
-tofu refresh
-
-#
 # Run the function in the terraform directory
 #
-( pushd ../terraform >/dev/null; dump; popd >/dev/null ) | tee inventory/site.yml
+(
+	pushd ../terraform >/dev/null;
+	tofu refresh;
+	dump;
+	popd >/dev/null
+) | tee inventory/site.yml
