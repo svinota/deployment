@@ -16,7 +16,7 @@ module "network_serverB" {
 }
 
 module "infra_serverA" {
-  count  = 1                            # number of servers: `count` creates a declarative loop
+  count  = var.serverA_count            # number of servers: `count` creates a declarative loop
   name   = "infra-A"                    # servers will be named infra-A-0, infra-A-1 etc.
   index  = tonumber(count.index)        # current server index in the loop
   source = "./infra"                    # ./ is important as it points to a local file
@@ -27,7 +27,7 @@ module "infra_serverA" {
 }
 
 module "infra_serverB" {
-  count  = 1
+  count  = var.serverB_count
   name   = "infra-B"
   index  = tonumber(count.index)
   source = "./infra"

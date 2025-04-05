@@ -1,0 +1,4 @@
+# best practice is not to push terraform.tfvars to the git
+
+serverA_count = 2
+serverB_count = 2
